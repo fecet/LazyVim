@@ -71,4 +71,25 @@ return {
     },
     keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
   },
+  {
+    "telescope.nvim",
+    opts = {
+      conda = { anaconda_path = "~/.conda" },
+    },
+    dependencies = {
+      {
+        "IllustratedMan-code/telescope-conda.nvim",
+        optional = true,
+        keys = {
+          {
+            "<leader>cv",
+            function()
+              require("telescope").extensions.conda.conda({})
+            end,
+            desc = "Select CondaEnv",
+          },
+        },
+      },
+    },
+  },
 }
